@@ -1,6 +1,6 @@
 {
     "name": "alertify.js",
-    "version": "0.3.12.1",
+    "version": "0.3.13",
     "main": "dist/js/alertify.js",
     "authors": [
         { "name": "Fabien Doiron", "email" : "fabien.doiron@gmail.com"},
@@ -11,8 +11,8 @@
         "gulpfile.js",
         "package.json",
         "test",
-        "src",
-        "!src/sass",
+        "src/js",
+        "src/css",
         "example",
         ".travis.yml",
         "Contributors.md"
