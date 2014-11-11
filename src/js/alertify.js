@@ -256,6 +256,7 @@
 				html += dialogs.message.replace("{{message}}", message);
 
 				if (type === "prompt") html += dialogs.input;
+				if (type === "html") html += item.placeholder;
 
 				html += dialogs.buttons.holder;
 				html += "</article>";
@@ -608,6 +609,7 @@
 			alert   : function (message, fn, cssClass) { _alertify.dialog(message, "alert", fn, "", cssClass); return this; },
 			confirm : function (message, fn, cssClass) { _alertify.dialog(message, "confirm", fn, "", cssClass); return this; },
 			extend  : _alertify.extend,
+			html    : function (message, html, fn, cssClass) { _alertify.dialog(message, "html", fn, html, cssClass); return this; },
 			init    : _alertify.init,
 			log     : function (message, type, wait, click) { _alertify.log(message, type, wait, click); return this; },
 			prompt  : function (message, fn, placeholder, cssClass) { _alertify.dialog(message, "prompt", fn, placeholder, cssClass); return this; },

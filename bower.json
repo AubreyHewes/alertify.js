@@ -1,6 +1,6 @@
 {
     "name": "alertify.js",
-    "version": "0.3.12",
+    "version": "0.3.12.1",
     "main": "dist/js/alertify.js",
     "authors": [
         { "name": "Fabien Doiron", "email" : "fabien.doiron@gmail.com"},
@@ -12,6 +12,7 @@
         "package.json",
         "test",
         "src",
+        "!src/sass",
         "example",
         ".travis.yml",
         "Contributors.md"
