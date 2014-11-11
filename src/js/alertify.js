@@ -250,18 +250,18 @@
 				if (_alertify.buttonFocus === "none") html += "<a href=\"#\" id=\"alertify-noneFocus\" class=\"alertify-hidden\"></a>";
 
 				// doens't require an actual form
-				if (type === "prompt") html += "<div id=\"alertify-form\">";
+				if (type === "prompt" || type === "html") html += "<div id=\"alertify-form\">";
 
 				html += "<article class=\"alertify-inner\">";
 				html += dialogs.message.replace("{{message}}", message);
 
 				if (type === "prompt") html += dialogs.input;
-				if (type === "html") html += item.placeholder;
+				if (type === "html" && item.html) html += "<div class=\"alertify-html-wrapper\">" + item.html + "</div>";
 
 				html += dialogs.buttons.holder;
 				html += "</article>";
 
-				if (type === "prompt") html += "</div>";
+				if (type === "prompt" || type === "html") html += "</div>";
 
 				html += "<a id=\"alertify-resetFocus\" class=\"alertify-resetFocus\" href=\"#\">Reset Focus</a>";
 				html += "</div>";
@@ -272,6 +272,7 @@
 					html = html.replace("{{ok}}", this.labels.ok).replace("{{cancel}}", this.labels.cancel);
 					break;
 				case "prompt":
+				case "html":
 					html = html.replace("{{buttons}}", this.appendButtons(dialogs.buttons.cancel, dialogs.buttons.submit));
 					html = html.replace("{{ok}}", this.labels.ok).replace("{{cancel}}", this.labels.cancel);
 					break;
@@ -345,10 +346,11 @@
 			 * @param  {Function} fn             [Optional] Callback function
 			 * @param  {String}   placeholder    [Optional] Default value for prompt input field
 			 * @param  {String}   cssClass       [Optional] Class(es) to append to dialog box
+			 * @param  {String}   html           [Optional] Define your own content
 			 *
 			 * @return {Object}
 			 */
-			dialog : function (message, type, fn, placeholder, cssClass) {
+			dialog : function (message, type, fn, placeholder, cssClass, html) {
 				// set the current active element
 				// this allows the keyboard focus to be resetted
 				// after the dialog box is closed
@@ -367,7 +369,7 @@
 				this.init();
 				check();
 
-				queue.push({ type: type, message: message, callback: fn, placeholder: placeholder, cssClass: cssClass });
+				queue.push({ type: type, message: message, callback: fn, placeholder: placeholder, cssClass: cssClass, html: html });
 				if (!isopen) this.setup();
 
 				return this;
@@ -609,7 +611,7 @@
 			alert   : function (message, fn, cssClass) { _alertify.dialog(message, "alert", fn, "", cssClass); return this; },
 			confirm : function (message, fn, cssClass) { _alertify.dialog(message, "confirm", fn, "", cssClass); return this; },
 			extend  : _alertify.extend,
-			html    : function (message, html, fn, cssClass) { _alertify.dialog(message, "html", fn, html, cssClass); return this; },
+			html    : function (message, html, fn, cssClass) { _alertify.dialog(message, "html", fn, "", cssClass, html); return this; },
 			init    : _alertify.init,
 			log     : function (message, type, wait, click) { _alertify.log(message, type, wait, click); return this; },
 			prompt  : function (message, fn, placeholder, cssClass) { _alertify.dialog(message, "prompt", fn, placeholder, cssClass); return this; },

@@ -1,10 +1,12 @@
-/**
-* Bootstrap 3 Look and Feel
-* Based on Alertify Bootstrap theme.
-* @author İsmail Demirbilek
-* http://github.com/dbtek/alertify-bootstrap-3
-*/
+@import "variables"; // @todo use bootstrap vars if available else fallback to own vars
+@import "../../core"; // import core so we just need one css file
 
+/**
+ * Bootstrap 3 Look and Feel
+ * Based on Alertify Bootstrap theme.
+ * @author İsmail Demirbilek
+ * http://github.com/dbtek/alertify-bootstrap-3
+ */
 .alertify {
     background: #FFF;
     border: 1px solid #8E8E8E; /* browsers that don't support rgba */

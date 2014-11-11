@@ -1,0 +1,14 @@
+// @todo use bootstrap vars if available else fallback to own vars
+
+// 1: override default variables here (for standalone; no bootstrap variables within sass)
+
+$alertify-log-error-color: #B94A48 !default;
+$alertify-log-error-background: #F2DEDE !default;
+$alertify-log-error-border-color: #EED3D7 !default;
+$alertify-log-error-border: 1px solid $alertify-log-error-border-color !default;
+
+// 2: possibly override default variables via predefined bootstrap variables (bootstrap within sass; possibly newer)
+@import "predefined";
+
+// 3: include default variables (could be overridden by above)
+@import "../default/variables";

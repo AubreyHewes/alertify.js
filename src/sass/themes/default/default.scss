@@ -1,81 +1,84 @@
+@import "variables";
+@import "../../core"; // import core so we just need one css file
+
 /**
  * Default Look and Feel
  */
 .alertify,
 .alertify-log {
-  font-family: sans-serif;
+  font-family: $alertify-font-family;
 }
 
 .alertify {
-  background: #FFF;
-  border: 10px solid #333; /* browsers that don't support rgba */
-  border: 10px solid rgba(0, 0, 0, .7);
-  border-radius: 8px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+  background: $alertify-background;
+  border: $alertify-border-size $alertify-border-style $alertify-border-color; /* browsers that don't support rgba */
+  border: $alertify-border-size $alertify-border-style rgba($alertify-border-color, .7);
+  border-radius: $alertify-border-radius;
+  box-shadow: 0 3px 3px rgba($alertify-shadow-color, .3); // @todo dimension override
   background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 .alertify-text {
-  border: 1px solid #CCC;
-  padding: 10px;
-  border-radius: 4px;
+  border: $alertify-text-border-size $alertify-text-border-style $alertify-text-border-color;
+  padding: $alertify-text-padding;
+  border-radius: $alertify-text-border-radius;
 }
 
 .alertify-button {
-  border-radius: 4px;
-  color: #FFF;
-  font-weight: bold;
-  padding: 6px 15px;
+  border-radius: $alertify-button-border-radius;
+  color: $alertify-button-color;
+  font-weight: $alertify-button-font-weight;
+  padding: $alertify-button-padding;
   text-decoration: none;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, .5);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, .5);
-  background-image: linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
+  text-shadow: $alertify-button-text-shadow;
+  box-shadow: $alertify-button-box-shadow;
+  background-image: $alertify-button-background-image;
 }
 
 .alertify-button:hover,
 .alertify-button:focus {
   outline: none;
-  background-image: linear-gradient(top, rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+  background-image: $alertify-button-hover-background-image;
 }
 
 .alertify-button:focus {
-  box-shadow: 0 0 15px #2B72D5;
+  box-shadow: $alertify-button-focus-box-shadow;
 }
 
 .alertify-button:active {
   position: relative;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: $alertify-button-active-box-shadow;
 }
 
 .alertify-button-cancel,
 .alertify-button-cancel:hover,
 .alertify-button-cancel:focus {
-  background-color: #FE1A00;
-  border: 1px solid #D83526;
+  background-color: $alertify-button-cancel-background-color;
+  border: 1px solid $alertify-button-cancel-border-color;
 }
 
 .alertify-button-ok,
 .alertify-button-ok:hover,
 .alertify-button-ok:focus {
-  background-color: #5CB811;
-  border: 1px solid #3B7808;
+  background-color: $alertify-button-ok-background-color;
+  border: 1px solid $alertify-button-ok-border-color;
 }
 
 .alertify-log {
-  background: #1F1F1F;
-  background: rgba(0, 0, 0, .9);
-  padding: 15px;
-  border-radius: 4px;
-  color: #FFF;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, .5);
+  background: $alertify-log-background-fallback;
+  background: rgba($alertify-log-background, .9);
+  padding: $alertify-log-padding;
+  border-radius: $alertify-log-border-radius;
+  color: $alertify-log-color;
+  text-shadow: $alertify-log-text-shadow;
 }
 
 .alertify-log-error {
-  background: #FE1A00;
-  background: rgba(254, 26, 0, .9);
+  background: $alertify-log-error-background;
+  background: rgba($alertify-log-error-background, .9);
 }
 
 .alertify-log-success {
-  background: #5CB811;
-  background: rgba(92, 184, 17, .9);
+  background: $alertify-log-success-background;
+  background: rgba($alertify-log-success-background, .9);
 }

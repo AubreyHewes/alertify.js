@@ -1,0 +1,9 @@
+// @todo use bootstrap vars if available else fallback to own vars
+
+// 1: override default variables here (for standalone; no bootstrap variables within sass)
+
+// 2: possibly override default variables via predefined bootstrap variables (bootstrap within sass; possibly newer)
+@import "predefined";
+
+// 3: include default variables
+@import "../default/variables";

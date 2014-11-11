@@ -1,12 +1,8 @@
-$log-error-color: #B94A48 !default;
-$log-error-background: #F2DEDE !default;
-$log-error-border-color: #EED3D7 !default;
-$log-error-border: 1px solid $log-error-border-color !default;
-
+@import "variables";// @todo use bootstrap vars if available else fallback to own vars
+@import "../../core"; // import core so we just need one css file
 
 /**
- * Twitter Bootstrap Look and Feel
- * Based on http://twitter.github.com/bootstrap/
+ * Bootstrap (old; pre v3) Look and Feel
  */
 .alertify,
 .alertify-log {
@@ -131,9 +127,9 @@ $log-error-border: 1px solid $log-error-border-color !default;
 }
 
 .alertify-log-error {
-  color: $log-error-color;
-  background: $log-error-background;
-  border: $log-error-border;
+  color: $alertify-log-error-color;
+  background: $alertify-log-error-background;
+  border: $alertify-log-error-border;
 }
 
 .alertify-log-success {
